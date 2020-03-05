@@ -1,1 +1,3 @@
-# robotic_lacing
+# Robotic lacing
+
+We make lace with robots
