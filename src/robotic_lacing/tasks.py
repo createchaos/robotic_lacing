@@ -15,13 +15,15 @@ state_postition_gh = None
 state_retracted = ""
 
 # Work object (read manually from robot controller)
-wobj = [100,100,100,.1,.1,.1,.1]
+wobj = [396.529,295.267,21.5105,0.000382471,0.00291474,-0.00127828,-0.999995]
+tool_pneumatic = [0,0,107.5,0,-0.707,0,0.707]
 
 # Open gripppers
 def open_gripper(communication):
     communication.send_open_gripper()
     global state_gripper
     state_gripper = "is_open"
+    #print(state_gripper)
     return state_gripper
     
 # Close gripppers
@@ -29,29 +31,65 @@ def close_gripper(communication):
     communication.send_close_gripper()
     global state_gripper
     state_gripper = "is_closed"
+    #print(state_gripper)
     return state_gripper
 
-# Transform robot pose to rhino coordinates 
+# Toggle grippers
+def toggle_gripper(communication):
+    print("gripper ")
+    print(state_gripper)
+    if state_gripper == "is_open":
+        close_gripper(communication)
+    elif state_gripper == "is_closed":
+        open_gripper(communication)
+    else: # if there is no state, do both to set the state
+        open_gripper(communication)
+        close_gripper(communication)
+
+# Transform robot pose to rhino coordinates
 def get_pose_as_plane(communication, fake_pose=None):
     global state_position
     global state_postition_gh
+    tool = tool_pneumatic
+    #print(wobj)
     pose = communication.get_current_pose_cartesian()
+    #print(pose)
     if fake_pose:
         pose = fake_pose
     pose_coordinates = pose[0:3]
     pose_quaternions = pose[3:7]
     wobj_coordinates = wobj[0:3]
     wobj_quaternions = wobj[3:7]
+    tool_coordinates = tool[0:3]
+    tool_quaternions = tool[3:7]
+
     # Make frames with compas
     pose_frame = Frame.from_quaternion(pose_quaternions, point=pose_coordinates)
     wobj_frame = Frame.from_quaternion(wobj_quaternions, point=wobj_coordinates)
-    # Define transformation using wobj
-    T = Transformation.from_frame_to_frame(pose_frame, wobj_frame)
+    tool_frame = Frame.from_quaternion(tool_quaternions, point=tool_coordinates)
+
+    # Define transformations
+    T_robot_to_wobj = Transformation.from_frame(wobj_frame)
+    T_robot_to_wobj_inverse = T_robot_to_wobj.inverse()
+    T_tool = Transformation.from_frame(tool_frame)
+    
     # Do the transformation
-    state_position = Frame.from_transformation(T)
+    pose_frame.transform(T_robot_to_wobj_inverse)
+
+    # To account for the tool, we first need to transform the current pose to the origin
+    T_zero = Transformation.from_frame_to_frame(pose_frame, Frame.worldXY())
+    T_zero_inverse = T_zero.inverse()
+    pose_frame.transform(T_zero)
+
+    # Apply the tool transformation
+    pose_frame.transform(T_tool)
+
+    # Then transform back
+    pose_frame.transform(T_zero_inverse)
+
     # Return rhino and compas geometry 
+    state_position = pose_frame
     state_postition_gh = compas_ghpython.draw_frame(state_position)
-    return state_position
     return state_postition_gh
 
 # Get robot joint values
@@ -66,17 +104,19 @@ def get_joints(communication, fake_joints=None):
     state_joints.extend([0] * (9 - len(state_joints)))
     return state_joints
 
+# Send plane or planes
+def send_planes(communication, planes):
+    print(len(planes))
+    if len(planes) == 1:
+        communication.send_pose_cartesian(planes[0])
+    else:
+        communication.send_pose_cartesian_list(planes)
+
 # Retract function
 def retract(communication):
     global state_retracted
-    if state_gripper == "is_open":
-        print("gripper is open so I will close it")
-        close_gripper(communication)
-        print("gripper is now closed")
-    print("now I will retract")
-    # Retract along tool z See send_movel_reltool - ln 359 in communication.py
-    retract_distance = 50
-    communication.send_movel_reltool(0,0,-retract_distance)
+    retract_distance = 10
+    communication.send_movel_reltool(0,0,-retract_distance, tcp=False) # Retract along tool z See send_movel_reltool - ln 359 in communication.py
     state_retracted = "is_retracted"
 
 # Unwind function
