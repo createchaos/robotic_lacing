@@ -13,8 +13,9 @@ config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
 # Start streaming
 pipeline.start(config)
 
+windowClose = False
 try:
-    while True:
+    while windowClose == False:
 
         # Wait for a coherent pair of frames: depth and color
         frames = pipeline.wait_for_frames()
@@ -37,6 +38,9 @@ try:
         cv.namedWindow('RealSense', cv.WINDOW_AUTOSIZE)
         cv.imshow('RealSense', images)
         cv.waitKey(1)
+
+        if cv.getWindowProperty('RealSense', 0) == -1:
+            windowClose = True
 
 finally:
 
