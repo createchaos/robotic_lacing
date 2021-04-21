@@ -12,7 +12,7 @@ We make lace with robots
 1. Clone this repo
 2. `cd` to the repo locally
 3. `pip install -e .` (don't forget the dot at the end)
-4. Install skspatial: `conda install -c anaconda scikit-image`
+4. Install skspatial: `pip install scikit-spatial`
 5. `python -m compas_rhino.install -p robotic_lacing`
 
 ## Not needed now, but later for visualization
