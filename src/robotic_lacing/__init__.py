@@ -13,6 +13,7 @@ Robotic lacing
 """
 
 from __future__ import print_function
+from .vision import find_corners
 
 import os
 import sys
