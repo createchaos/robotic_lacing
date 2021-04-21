@@ -158,6 +158,17 @@ class robotic_lacing:
         if self.joints[2] >= math.radians(70 * .9):
             self.unwind(communication, fake_joints)
 
+    # Go look
+    def go_look(self, communication, target):
+        # Make a compas frame
+        target_frame = RhinoPlane.from_geometry(my_grasshopper_plane).to_compas()
+        # Offset that plane with respect to the tool
+        offset_vector = Vector(0, 0, 200)
+        T = Translation.from_vector(offset_vector)
+        target_frame.Transform(T)
+        print(target_frame)
+        # Transform to camera 0 and go there
+
 # Go to plane
     # standard comm function
     # change retract variable
