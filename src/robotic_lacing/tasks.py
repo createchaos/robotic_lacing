@@ -1,18 +1,14 @@
 import compas_ghpython
-from compas.geometry import Frame, Plane, Transformation
+from compas_rhino.geometry import RhinoPlane
+from compas.geometry import Frame, Plane, Transformation, Vector, Translation
 from abb_communication.clients.rfl_robot.communication.messages.messagetypes import *
 import math 
 
 class robotic_lacing:
 
-    # if communication == None:
-    #     print("No communication, no problem!")
-
-    def __init__(self, communication):
+    def __init__(self):
 
         # State variables
-        self.communication = communication
-        self.connected = ""
         self.gripper = ""
         self.joints = []
         self.position = None
@@ -27,20 +23,20 @@ class robotic_lacing:
     def open_gripper(self, communication):
         communication.send_open_gripper()
         self.gripper = "is_open"
-        #print(state_gripper)
-        return self.gripper
+        #print("gripper " + self.gripper)
+        #return self.gripper
             
     # Close gripppers
     def close_gripper(self,communication):
         communication.send_close_gripper()
         self.gripper = "is_closed"
-        #print(state_gripper)
-        return self.gripper
+        #print("gripper " + self.gripper)
+        #return self.gripper
 
     # Toggle grippers
     def toggle_gripper(self,communication):
-        print("gripper ")
-        print(self.gripper)
+        #print("gripper ")
+        #print(self.gripper)
         if self.gripper == "is_open":
             self.close_gripper(communication)
         elif self.gripper == "is_closed":
@@ -50,13 +46,16 @@ class robotic_lacing:
             so the gripper state is known from the beginning'''
             self.open_gripper(communication)
             self.close_gripper(communication)
+            self.gripper = "is_closed"
+            #return self.gripper
+            #print("gripper " + self.gripper)
 
     # Transform robot pose to rhino coordinates
-    def get_pose_as_plane(self,communication, fake_pose=None):
+    def get_pose_as_plane(self,communication,fake_pose=None):
         tool = self.tcp
-        #print(wobj)
+        #print(tool)
         pose = communication.get_current_pose_cartesian()
-        #print(pose)
+        print(pose)
         if fake_pose:
             pose = fake_pose
         pose_coordinates = pose[0:3]
@@ -159,15 +158,31 @@ class robotic_lacing:
             self.unwind(communication, fake_joints)
 
     # Go look
-    def go_look(self, communication, target):
-        # Make a compas frame
-        target_frame = RhinoPlane.from_geometry(my_grasshopper_plane).to_compas()
-        # Offset that plane with respect to the tool
-        offset_vector = Vector(0, 0, 200)
-        T = Translation.from_vector(offset_vector)
-        target_frame.Transform(T)
-        print(target_frame)
+    def go_look(self,communication,target,fake_pose=None):
+        """The robot is getting ready to grip a strand... there is a target
+        plane that it needs to 'see' with the camera. This function sends
+        the robot to a good spot to look for it. """
+       
+        offset_value = 200
+
+        # Make a compas frame of the target plane (defined in GH)
+        target_frame = RhinoPlane.from_geometry(target).to_compas()
+
+        # Define transformations
+        T_1 = Transformation.from_frame_to_frame(target_frame, Frame.worldXY()) 
+        T_2 = Translation.from_vector([0,0,-offset_value])
+
+        # Apply transformations
+        target_frame.transform(T_1)     
+        target_frame.transform(T_2)
+        target_frame.transform(T_1.inverse())
+
+        # Show a frame in grasshopper
+        target_frame_gh = compas_ghpython.draw_frame(target_frame)
+        return target_frame_gh
+
         # Transform to camera 0 and go there
+
 
 # Go to plane
     # standard comm function
