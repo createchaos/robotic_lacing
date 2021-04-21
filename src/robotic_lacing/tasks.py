@@ -164,13 +164,14 @@ class robotic_lacing:
         the robot to a good spot to look for it. """
        
         offset_value = 200
+        offset_vector = [0,0,-offset_value]
 
         # Make a compas frame of the target plane (defined in GH)
         target_frame = RhinoPlane.from_geometry(target).to_compas()
 
         # Define transformations
         T_1 = Transformation.from_frame_to_frame(target_frame, Frame.worldXY()) 
-        T_2 = Translation.from_vector([0,0,-offset_value])
+        T_2 = Translation.from_vector([0,0,-offset_value]) # This should reflect the transformation to camera_look
 
         # Apply transformations
         target_frame.transform(T_1)     
