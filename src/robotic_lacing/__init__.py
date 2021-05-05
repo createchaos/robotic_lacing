@@ -13,11 +13,9 @@ Robotic lacing
 """
 
 from __future__ import print_function
-from .vision import find_corners
 
 import os
 import sys
-
 
 __author__ = ["Lauren Dreier"]
 __copyright__ = "2021"
