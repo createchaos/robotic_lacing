@@ -4,9 +4,9 @@ from compas.geometry import Frame, Plane, Transformation, Vector, Translation
 from abb_communication.clients.rfl_robot.communication.messages.messagetypes import *
 import math 
 
-class robotic_lacing:
+class Tasks:
 
-    def __init__(self):
+    def __init__(self, communication=None, robot=102):
 
         # State variables
         self.gripper = ""
@@ -15,40 +15,49 @@ class robotic_lacing:
         self.position_gh = None
         self.retracted = "" 
 
+        if communication:
+            self.communication = communication
+        else: 
+            self.communication = None
+
         # Global variables
-        self.wobj = [396.529,295.267,21.5105,0.000382471,0.00291474,-0.00127828,-0.999995]
+        if robot == 102:
+            self.wobj = [396.529,295.267,21.5105,0.000382471,0.00291474,-0.00127828,-0.999995]
+        else:
+            self.wobj = [396.529,295.267,21.5105,0.000382471,0.00291474,-0.00127828,-0.999995]
         self.tcp = [0,0,107.5,0,-0.707,0,0.707]
 
     # Open gripppers
-    def open_gripper(self, communication):
-        communication.send_open_gripper()
-        self.gripper = "is_open"
-        #print("gripper " + self.gripper)
-        #return self.gripper
+    def open_gripper(self):
+        if self.communication:
+            self.communication.send_open_gripper()
+            self.gripper = "is_open"
+            #print("gripper " + self.gripper)
+            #return self.gripper
             
     # Close gripppers
-    def close_gripper(self,communication):
-        communication.send_close_gripper()
-        self.gripper = "is_closed"
-        #print("gripper " + self.gripper)
-        #return self.gripper
+    def close_gripper(self):
+        if self.communication:
+            self.communication.send_close_gripper()
+            self.gripper = "is_closed"
+            #print("gripper " + self.gripper)
+            #return self.gripper
 
     # Toggle grippers
-    def toggle_gripper(self,communication):
-        #print("gripper ")
-        #print(self.gripper)
-        if self.gripper == "is_open":
-            self.close_gripper(communication)
-        elif self.gripper == "is_closed":
-            self.open_gripper(communication)
-        else: # if there is no state, do both to set the state
-            '''Note: let's include this in a startup function
-            so the gripper state is known from the beginning'''
-            self.open_gripper(communication)
-            self.close_gripper(communication)
-            self.gripper = "is_closed"
-            #return self.gripper
-            #print("gripper " + self.gripper)
+    def toggle_gripper(self):
+        if self.communication:
+            if self.gripper == "is_open":
+                self.close_gripper(self.communication)
+            elif self.gripper == "is_closed":
+                self.open_gripper(self.communication)
+            else: # if there is no state, do both to set the state
+                '''Note: let's include this in a startup function
+                so the gripper state is known from the beginning'''
+                self.open_gripper(self.communication)
+                self.close_gripper(self.communication)
+                self.gripper = "is_closed"
+                #return self.gripper
+                #print("gripper " + self.gripper)
 
     # Transform robot pose to rhino coordinates
     def get_pose_as_plane(self,communication,fake_pose=None):
@@ -107,12 +116,18 @@ class robotic_lacing:
         return self.joints
 
     # Send plane or planes
-    def send_planes(self,communication, planes):
+    def send_planes(self, planes):
         print(len(planes))
-        if len(planes) == 1:
-            communication.send_pose_cartesian(planes[0])
-        else:
-            communication.send_pose_cartesian_list(planes)
+        if self.communication:
+            if len(planes) == 1:
+                self.communication.send_pose_cartesian(planes[0])
+            else:
+                self.communication.send_pose_cartesian_list(planes)
+    
+    # Send joint vales
+    def send_joints(self, joint_list):
+        if self.communication:
+            self.communication.send_axes_absolute(joint_list)
 
     # Retract function
     def retract(self,communication):
