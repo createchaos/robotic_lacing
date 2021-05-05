@@ -1,23 +1,10 @@
-﻿#################################################
-###             c.r.e.A.te Lab                ###
-###          Intel RealSense D435i            ###
-###           Single-Frame Capture            ###
-###       Corner Detection + Point Cloud      ###
-#################################################
-
-# Collects single RGB and Depth frames; aligns them for processing
-# Masks image using simple bounding box in center of RGB image
-# Run corner detection on masked region of image, projects to Depth, and obtains point coordinates (point cloud)
-# Visualize RGB Image with Corners, Depth with projected corner points, and Point Cloud
-
-import cv2                                # state of the art computer vision algorithms library
-import numpy as np                        # fundamental package for scientific computing
-import matplotlib.pyplot as plt           # 2D plotting library producing publication quality figures
-import pyrealsense2 as rs                 # Intel RealSense cross-platform open-source API
-import open3d as o3d                      # 3D point library, used for plane segmentation (not working)
+﻿import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+import pyrealsense2 as rs
+#import open3d as o3d
 from mpl_toolkits.mplot3d import Axes3D
 from skspatial.objects import Plane, Points
-
 
 _pipe = None
 _pipe = rs.pipeline()
@@ -77,9 +64,8 @@ def find_corners():
 
     colorized_depth = np.asanyarray(colorizer.colorize(aligned_depth_frame).get_data())
 
-
-
     ### CORNER DETECTION ###
+
     # Convert color image to gray and detect corners
     gray = cv2.cvtColor(color_image, cv2.COLOR_BGR2GRAY)
     # corners	=	cv.goodFeaturesToTrack(	image, maxCorners, qualityLevel, minDistance[, corners[, mask[, blockSize[, useHarrisDetector[, k]]]]]	)
