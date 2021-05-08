@@ -6,7 +6,7 @@ import math
 
 class Tasks:
 
-    def __init__(self, communication=None, robot=102):
+    def __init__(self, communication=None, robot=None):
 
         # State variables
         self.gripper = ""
@@ -17,14 +17,16 @@ class Tasks:
 
         if communication:
             self.communication = communication
+            self.robot = robot
         else: 
             self.communication = None
+            self.robot = None
 
         # Global variables
         if robot == 102:
             self.wobj = [396.529,295.267,21.5105,0.000382471,0.00291474,-0.00127828,-0.999995]
-        else:
-            self.wobj = [396.529,295.267,21.5105,0.000382471,0.00291474,-0.00127828,-0.999995]
+        elif robot == 103:
+            self.wobj = [404.764,-294.566,24.0056,0.999992,0.00033097,-0.00125983,0.00372388]
         self.tcp = [0,0,107.5,0,-0.707,0,0.707]
 
     # Open gripppers
@@ -32,16 +34,12 @@ class Tasks:
         if self.communication:
             self.communication.send_open_gripper()
             self.gripper = "is_open"
-            #print("gripper " + self.gripper)
-            #return self.gripper
             
     # Close gripppers
     def close_gripper(self):
         if self.communication:
             self.communication.send_close_gripper()
             self.gripper = "is_closed"
-            #print("gripper " + self.gripper)
-            #return self.gripper
 
     # Toggle grippers
     def toggle_gripper(self):
@@ -115,6 +113,19 @@ class Tasks:
         self.joints.extend([0] * (9 - len(self.joints)))
         return self.joints
 
+    # Set tool
+    def set_tool(self, tool_number):
+        self.communication.set_tool_to_num(tool_number)
+
+    # # Set speed
+    # def set_speed(self, speed):
+    #     if speed == 0:
+    #         self.communication.set_speed_fast()
+    #     if speed == 1:
+    #         self.communication.set_speed_mid()
+    #     if speed == 2:
+    #         self.communication.set_speed_slow()
+
     # Send plane or planes
     def send_planes(self, planes):
         print(len(planes))
@@ -124,16 +135,17 @@ class Tasks:
             else:
                 self.communication.send_pose_cartesian_list(planes)
     
-    # Send joint vales
+    # Send joint values
     def send_joints(self, joint_list):
+        # Make sure to send 9 values and set the robot number!
         if self.communication:
+            self.communication.int_rob_num = int(1)
             self.communication.send_axes_absolute(joint_list)
 
     # Retract function
-    def retract(self,communication):
+    def retract(self,distance):
         self.retracted
-        retract_distance = 10
-        communication.send_movel_reltool(0,0,-retract_distance, tcp=False) # Retract along tool z See send_movel_reltool - ln 359 in communication.py
+        self.communication.send_movel_reltool(0,0,-distance, tcp=False) # Retract along tool z See send_movel_reltool - ln 359 in communication.py
         self.retracted = "is_retracted"
 
     # Unwind function
