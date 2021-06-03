@@ -102,9 +102,9 @@ class Tasks:
         return self.postition_gh
 
     # Get robot joint values
-    def get_joints(self,communication, fake_joints=None):
-        self.joints
-        joints = communication.get_current_pose_joint()
+    def get_joints(self, fake_joints=None):
+        #self.joints
+        joints = self.communication.get_current_pose_joint()
         if fake_joints:
             joints = fake_joints
         # Trim to 6 values
@@ -116,6 +116,7 @@ class Tasks:
     # Set tool
     def set_tool(self, tool_number):
         self.communication.set_tool_to_num(tool_number)
+        self.communication.set_speed_slow()
 
     # # Set speed
     # def set_speed(self, speed):

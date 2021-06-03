@@ -159,4 +159,4 @@ def find_corners():
     # Output formatted as list of points [[planePt], [planeVctr], [[pt1], [pt2], [pt3], [pt4]]] in mm
     return output
 
-#find_corners()
+find_corners()
