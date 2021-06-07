@@ -113,3 +113,6 @@ temp/**
 
 .DS_Store
 /src/robotic_lacing/.vscode
+/gh/data/._Bigon80degree.dat
+/gh/data/._doublebigongamma60wot8.dat
+/gh/data/._doublebigongamma90wot8.dat
