@@ -3,10 +3,11 @@
 We make lace with robots
 
 ## Installation
-- Rhino 6 or later
-- Compas: 1.0.0
-- CompasFab: 0.16.0
-- Robots plugin for grasshopper (temporary)
+- Rhino 7 or later
+- Compas: 1.0.0 or later
+- CompasFab: 0.16.0 or later
+- Robots plugin for Grasshopper
+- Pufferfish for Grasshopper
 - CREATE Lab ABB communication library
 
 1. Clone this repo
