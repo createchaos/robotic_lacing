@@ -7,7 +7,7 @@ We make lace with robots
 - Compas: 1.0.0 or later
 - CompasFab: 0.16.0 or later
 - Robots plugin for Grasshopper
-- Pufferfish for Grasshopper
+- Pufferfish plugin for Grasshopper
 - CREATE Lab ABB communication library
 
 1. Clone this repo
