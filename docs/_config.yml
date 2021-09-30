@@ -3,8 +3,8 @@ title: Forty
 subtitle: by HTML5 UP
 email: youremailaddress@gmail.com
 description: A responsive site template designed by HTML5 Up<br /> and released under the Creative Commons.
-baseurl: "/forty-jekyll-theme" # the subpath of your site, e.g. /blog
-url: "http://localhost:4000"
+baseurl: "/robotic_lacing" # the subpath of your site, e.g. /blog
+url: createchaos.github.io
 author:
 street_address: 1234 Somewhere Road
 city: Nashville
