@@ -1,0 +1,4 @@
+# Override some settings for local development
+environment: dev
+baseurl: ""
+url: "localhost:4000"

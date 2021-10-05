@@ -1,37 +1,22 @@
-# site settings
-title: Forty
-subtitle: by HTML5 UP
-email: youremailaddress@gmail.com
-description: A responsive site template designed by HTML5 Up<br /> and released under the Creative Commons.
-baseurl: "/robotic_lacing" # the subpath of your site, e.g. /blog
+# Site settings
+title: Robotic Lacing
+subtitle: Lace in Space
+email: ldreier@princeton.edu
+description: Lace in Space presents the outcome of an interdisciplinary investigation into new, spatial possibilities for bobbin lace, a centuries-old textile art. 
+baseurl: "/robotic_lacing"
 url: createchaos.github.io
-author:
-street_address: 1234 Somewhere Road
-city: Nashville
-state: TN
-zip_code: 55555
-country: United States of America
-phone: (716) 555-5555
+author: Lauren Dreier
+street_address: Labatut Pavillion, Princeton University
+city: Princeton
+state: NJ
+zip_code: 08540
+country: USA
 
-# homepage tiles
+# Homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
 tiles-count: 6
 
-# social settings (key must match name of font awesome icon)
-# see https://fontawesome.com/icons?d=gallery&p=2&s=brands
-# Icons are not shown if value is empty
-# You need to restart jekyll for changes to have an effect
-socials:
-  GitHub: https://github.com/andrewbanchich
-  GitLab:
-  Google-Plus: https://plus.google.com/u/0/+AndrewBanchich
-  Instagram:
-  LinkedIn: https://www.linkedin.com/in/andrew-banchich-a4ba1195
-  Twitter: https://twitter.com/andrewbanchich
-  Facebook:
-  Slack:
-
-# build settings
+# Build settings
 markdown: kramdown
 
 sass:
