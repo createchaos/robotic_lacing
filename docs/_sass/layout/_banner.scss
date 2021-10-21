@@ -152,6 +152,7 @@
 }
 
 // Debug responsive behaviors
+/*
 #wrapper {
 	&:before {
 		content: 'largest';
@@ -165,14 +166,17 @@
 		z-index: 1000;
 	}
 }
+*/
 
 @include breakpoint(xlarge) {
 	
-	#wrapper {
+	/*
+#wrapper {
 		&:before {
 			content: 'xlarge';
 		}
 	}
+*/
 	
 	/*
 #banner_wrapper {
@@ -192,11 +196,13 @@
 }
 
 @include breakpoint(large) {
-	#wrapper {
+	/*
+#wrapper {
 		&:before {
 			content: 'large';
 		}
 	}
+*/
 /*
 	#banner_wrapper {
 		padding: 12vw 0 36vw;
@@ -212,19 +218,23 @@
 }
 
 @include breakpoint(medium) {
-	#wrapper {
+	/*
+#wrapper {
 		&:before {
 			content: 'medium';
 		}
 	}
+*/
 }
 
 @include breakpoint(small) {
+/*
 	#wrapper {
 		&:before {
 			content: 'small';
 		}
 	}
+*/
 	#banner {
 		.intro {
 			@include vendor('display', 'flex');
