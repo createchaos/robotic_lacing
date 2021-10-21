@@ -1,17 +1,64 @@
-<!DOCTYPE html>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+ <html lang="en-us">
 
 {% include head.html %}
 
 <body>
 
-    {% include header.html %} {{ content }} {% include footer.html %}
+	{% include header.html %}
+	
+	<header id="page_header" class="major">
+		<div class="inner">
+			
+			<p class="prev">
+				{% case page.title %}
+					{% when "Labor" %}
+					<a href="/" class="button caret_left">Back: Home</a>
+					{% when "Scale" %}
+					<a href="{% link content/labor.md %}" class="button caret_left">Back: Labor</a>
+					{% when "Stiffness" %}
+					<a href="{% link content/scale.md %}" class="button caret_left">Back: Scale</a>
+				{% endcase %}
+			</p>
+			<p class="next">
+				{% case page.title %}
+					{% when "Labor" %}
+					<a href="{% link content/scale.md %}" class="button caret_right">Next: Scale</a>
+					{% when "Scale" %}
+					<a href="{% link content/stiffness.md %}" class="button caret_right">Next: Stiffness</a>
+				{% endcase %}
+			</p>
+			
+			<h1 class="title">{{ page.title }}</h1>
+			
+			<p class="intro">{{ content | remove: '<p>' }}</p>
+		</div>
+	</header>
+	
+	<section id="main">
+		{% assign items = site.posts | sort: 'date' %}
+		{% for item in items %}
+			{% if item.path contains 'labor' %}
+			<article class="inner {{item.orientation}} gallery_item">
+				<figure class="gallery_image">
+					<img src="{{item.image}}" alt="{{item.image_alt}}" class="img">
+					<figcaption class="caption">
+						{{ item.content }}
+						<div class="item_details">
+							<p class="author">Person Longname</p>
+							<p class="title">Work title</p>
+							<p class="medium_size">Medium, 00 x 00 mm</p>
+							<p class="source">From CollectionName elit, published by Person Longname & Sons, London 2021, plate 00. London, Museum Link.  0000-0000-00.</p>
+						</div>
+					</figcaption>
+				</figure>
+			</article>
+			{% endif %}
+		{% endfor %}
+	</section>
 
+	
+	{% include footer.html %}
+	
 </body>
 
 </html>

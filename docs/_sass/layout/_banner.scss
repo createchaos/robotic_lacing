@@ -1,177 +1,256 @@
-///
-/// Forty by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
-
 /* Banner */
 
-	#banner {
-		@include vendor('align-items', 'center');
-		@include vendor('background-image', 'url("../images/banner.jpg")');
+#banner_wrapper {
+	background-image: $grad_black_navy;
+	padding: 7vw 0 12vw;
+	& + #main {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+#banner {
+	@include vendor('align-items', 'center');
+	@include vendor('display', 'flex');
+	background-image:
+		$grad_navy_trans,
+		url("../../assets/images/index_lede@2x.png"),
+	;
+	background-attachment: scroll;
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-bottom: 0 !important;
+	cursor: default;
+	text-align: center;
+	
+	.line_above, .title {
+		text-shadow: $shadow_dark;
+	}
+	.line_above {
+		font-size: _font(size_36);
+		color: _color(yellow);
+		text-transform: uppercase;
+	}
+	.title {
+		font-family: $serif_display;
+		//font-size: _font(size_80);
+		font-size: clamp(44px, 7vw, 134px);
+		text-transform: uppercase;
+		letter-spacing: _font(tight_1);
+		margin: .2em 0 .4em;
+	}
+
+	> .inner {
+		@include vendor('transition', (
+			'opacity 1.5s ease',
+			'transform 0.5s ease-out',
+			'filter 0.5s ease',
+			'-webkit-filter 0.5s ease'
+		));
 		@include vendor('display', 'flex');
-		@include padding(4em, 0, (2em, 0, 0, 0));
-		background-attachment: fixed;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		border-bottom: 0 !important;
-		cursor: default;
-		height: 60vh;
-		margin-bottom: -3.25em;
-		max-height: 32em;
-		min-height: 22em;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 0 !important;
 		position: relative;
-		top: -3.25em;
-
-		&:after {
-			@include vendor('transition', 'opacity #{_duration(banner)} ease');
-			@include vendor('transition-delay', '0.75s');
-			@include vendor('pointer-events', 'none');
-			background-color: _palette(bg);
-			content: '';
-			display: block;
-			height: 100%;
-			left: 0;
-			opacity: 0.85;
-			position: absolute;
-			top: 0;
-			width: 100%;
-			z-index: 1;
-		}
-
-		h1 {
-			font-size: 3.25em;
-		}
-
-		> .inner {
-			@include vendor('transition', (
-				'opacity 1.5s ease',
-				'transform 0.5s ease-out',
-				'filter 0.5s ease',
-				'-webkit-filter 0.5s ease'
-			));
-			padding: 0 !important;
+		height: 100%;
+		z-index: 2;
+		
+		header {
 			position: relative;
-			z-index: 2;
-
-			.image {
-				display: none;
-			}
-
-			header {
+			top: -1vw;
+			width: auto;
+			> :first-child {
 				width: auto;
-
-				> :first-child {
-					width: auto;
-
-					&:after {
-						max-width: 100%;
-					}
-				}
-			}
-
-			.content {
-				@include vendor('display', 'flex');
-				@include vendor('align-items', 'center');
-				margin: 0 0 _size(element-margin) 0;
-
-				> * {
-					margin-left: 1.5em;
-					margin-bottom: 0;
-				}
-
-				> :first-child {
-					margin-left: 0;
-				}
-
-				p {
-					font-size: 0.7em;
-					font-weight: _font(weight-bold);
-					letter-spacing: _font(letter-spacing-alt);
-					text-transform: uppercase;
+				&:after {
+					max-width: 100%;
 				}
 			}
 		}
 
-		&.major {
-			height: 75vh;
-			min-height: 30em;
-			max-height: 50em;
-
-			&.alt {
-				  opacity: 0.75;
-			}
+		.spacer {
+			aspect-ratio: 1.4;
 		}
-
-		&.style1 { &:after { background-color: _palette(accent1); } }
-		&.style2 { &:after { background-color: _palette(accent2); } }
-		&.style3 { &:after { background-color: _palette(accent3); } }
-		&.style4 { &:after { background-color: _palette(accent4); } }
-		&.style5 { &:after { background-color: _palette(accent5); } }
-		&.style6 { &:after { background-color: _palette(accent6); } }
-
-		body.is-loading & {
-			&:after {
-				opacity: 1.0;
+		
+		.content {
+			@include vendor('display', 'flex');
+			@include vendor('align-items', 'center');
+			margin: 0 0 _size(element-margin) 0;
+			text-align: left;
+			> * {
+				margin-left: 1.5em;
+				margin-bottom: 0;
+				position: relative;
+				bottom: -2vw;		
 			}
-
-			> .inner {
-				@include vendor('filter', 'blur(0.125em)');
-				@include vendor('transform', 'translateX(-0.5em)');
-				opacity: 0;
-			}
-		}
-
-		@include breakpoint(large) {
-			background-attachment: scroll;
-		}
-
-		@include breakpoint(small) {
-			@include padding(3em, 0, (2em, 0, 0, 0));
-			height: auto;
-			margin-bottom: -2.75em;
-			max-height: none;
-			min-height: 0;
-			top: -2.75em;
-
-			h1 {
-				font-size: 2em;
-			}
-
-			> .inner {
-				.content {
-					display: block;
-
-					> * {
-						margin-left: 0;
-						margin-bottom: _size(element-margin);
-					}
-				}
-			}
-
-			&.major {
-				height: auto;
-				min-height: 0;
-				max-height: none;
-			}
-		}
-
-		@include breakpoint(xsmall) {
-			@include padding(4em, 0, (2em, 0, 0, 0));
-
-			> .inner {
-				.content {
-					p {
-						br {
-							display: none;
-						}
-					}
-				}
-			}
-
-			&.major {
-				@include padding(6em, 0, (2em, 0, 0, 0));
+			> :first-child {
+				margin-left: 0;
 			}
 		}
 	}
+	
+	.intro {
+		@include vendor('display', 'grid');
+		grid-template-columns: 2fr 4fr;
+		column-gap: _font(size_28);
+		justify-items: center;
+		align-items: center;
+		.intro_image {
+			img {
+				box-shadow: $shadow_dark;
+			}
+		}
+		.intro_text {
+			@include vendor('display', 'flex');
+			max-width: 36em;
+			text-shadow: $shadow_darker;
+			height: 100%;
+			flex-direction: column;
+			justify-content: flex-end;
+			> div {
+				font-family: $serif_text;
+				line-height: 1.25em;
+				font-size: _font(size_33); //28 at smaller break
+				margin-bottom: 1em;
+			}
+			.button {
+				//background: pink;
+			}
+		}
+	}
+
+/*
+	&.major {
+		height: 75vh;
+		min-height: 30em;
+		max-height: 50em;
+
+		&.alt {
+			  opacity: 0.75;
+		}
+	}
+*/
+
+	&.style1 { &:after { background-color: _color(accent1); } }
+	&.style2 { &:after { background-color: _color(accent2); } }
+	&.style3 { &:after { background-color: _color(accent3); } }
+	&.style4 { &:after { background-color: _color(accent4); } }
+	&.style5 { &:after { background-color: _color(accent5); } }
+	&.style6 { &:after { background-color: _color(accent6); } }
+
+	body.is-loading & {
+		&:after {
+			opacity: 1.0;
+		}
+
+		> .inner {
+			@include vendor('filter', 'blur(0.125em)');
+			@include vendor('transform', 'translateX(-0.5em)');
+			opacity: 0;
+		}
+	}
+}
+
+// Debug responsive behaviors
+#wrapper {
+	&:before {
+		content: 'largest';
+		display: block;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: auto;
+		background: pink;
+		color: red;
+		z-index: 1000;
+	}
+}
+
+@include breakpoint(xlarge) {
+	
+	#wrapper {
+		&:before {
+			content: 'xlarge';
+		}
+	}
+	
+	/*
+#banner_wrapper {
+		padding: 6vw 0 24vw;
+	}
+	#banner {
+		header {
+			top: -1.5vw;
+		}
+		> .inner {
+			.content > * {
+				bottom: -29vw;
+			}
+		}
+	}
+*/
+}
+
+@include breakpoint(large) {
+	#wrapper {
+		&:before {
+			content: 'large';
+		}
+	}
+/*
+	#banner_wrapper {
+		padding: 12vw 0 36vw;
+	}
+	#banner {
+		aspect-ratio: 1; // adjust for vertical orientations
+		header {
+			top: -6vw;
+		}
+	}
+*/
+
+}
+
+@include breakpoint(medium) {
+	#wrapper {
+		&:before {
+			content: 'medium';
+		}
+	}
+}
+
+@include breakpoint(small) {
+	#wrapper {
+		&:before {
+			content: 'small';
+		}
+	}
+	#banner {
+		.intro {
+			@include vendor('display', 'flex');
+			justify-content: center;
+			width: 100%;
+			.intro_image {
+				display: none;
+			}
+			.intro_text {
+				
+				//max-width: none;	
+				> div {
+					margin-bottom: .5em;
+				}
+			}
+		}
+	}
+}
+
+@include breakpoint(xsmall) {
+	#wrapper {
+		&:before {
+			content: 'xsmall';
+		}
+	}
+	
+}
+	
+

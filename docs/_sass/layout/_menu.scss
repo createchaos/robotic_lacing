@@ -16,7 +16,7 @@
 		@include vendor('display', 'flex');
 		@include vendor('justify-content', 'center');
 		@include vendor('pointer-events', 'none');
-		background: transparentize(_palette(bg), 0.1);
+		background: transparentize(_color(navy), 0.04);
 		box-shadow: none;
 		height: 100%;
 		left: 0;
@@ -56,42 +56,33 @@
 
 		ul {
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
-
 			&.links {
 				list-style: none;
 				padding: 0;
-
 				> li {
+					@include vendor('transition', 'color #{_duration(transition)} ease-in-out');
+					display: block;
 					padding: 0;
-
-					> a:not(.button) {
-						border: 0;
-						border-top: solid 1px _palette(border);
-						display: block;
-						font-size: 0.8em;
-						font-weight: _font(weight-bold);
-						letter-spacing: _font(letter-spacing-alt);
-						line-height: 4em;
+					border-top: $border_0;
+					font-size: _font(size_48);
+					color: _color(white);
+					font-family: $serif_display;
+					line-height: 2.4em;
+					a {
 						text-decoration: none;
-						text-transform: uppercase;
 					}
-
-					> .button {
-						display: block;
-						margin: 0.5em 0 0 0;
+					&:hover {
+						color: _color(yellow);
 					}
-
 					&:first-child {
-						> a:not(.button) {
-							border-top: 0 !important;
-						}
+						border-top: 0;
 					}
 				}
 			}
 		}
 
 		.close {
-			@include vendor('transition', 'color #{_duration(transition)} ease-in-out');
+			@include vendor('transition', 'color #{_duration(transition)} linear');
 			-webkit-tap-highlight-color: rgba(0,0,0,0);
 			border: 0;
 			cursor: pointer;
@@ -123,11 +114,11 @@
 			}
 
 			&:before {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20" zoomAndPan="disable"><style>line { stroke: #{_palette(fg-bold)}; stroke-width: 2; }</style><line x1="0" y1="0" x2="20" y2="20" /><line x1="20" y1="0" x2="0" y2="20" /></svg>');
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20" zoomAndPan="disable"><style>line { stroke: #{_color(fg-bold)}; stroke-width: 2; }</style><line x1="0" y1="0" x2="20" y2="20" /><line x1="20" y1="0" x2="0" y2="20" /></svg>');
 			}
 
 			&:after {
-				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20" zoomAndPan="disable"><style>line { stroke: #{_palette(highlight)}; stroke-width: 2; }</style><line x1="0" y1="0" x2="20" y2="20" /><line x1="20" y1="0" x2="0" y2="20" /></svg>');
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 20 20" zoomAndPan="disable"><style>line { stroke: #{_color(fg-bold)}; stroke-width: 2; }</style><line x1="0" y1="0" x2="20" y2="20" /><line x1="20" y1="0" x2="0" y2="20" /></svg>');
 				opacity: 0;
 			}
 
@@ -141,7 +132,7 @@
 
 	body.is-ie {
 		#menu {
-			background: transparentize(_palette(bg-alt), 0.025);
+			background: transparentize(_color(navy), 0.025);
 		}
 	}
 

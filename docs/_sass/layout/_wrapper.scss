@@ -7,18 +7,28 @@
 /* Wrapper */
 
 	#wrapper {
+		@include vendor('display', 'flex');
 		@include vendor('transition', (
 			'filter #{_duration(menu)} ease',
 			'-webkit-filter #{_duration(menu)} ease',
 			'opacity 0.375s ease-out'
 		));
+		min-height: 100vh;
+		flex-direction: column;
+		justify-content: space-between;
 		padding-top: 3.25em;
+		#main, #header, #footer {
+			flex-shrink: 0;
+		}
+		#main {
+			flex-grow: 1;
+		}
 
 		&.is-transitioning {
 			opacity: 0;
 		}
 
-		> * {
+		> *, > * > * {
 			@include inner;
 		}
 

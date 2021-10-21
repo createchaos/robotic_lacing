@@ -6,7 +6,7 @@
 // Duration.
 	$duration: (
 		menu:				0.35s,
-		transition:			0.2s,
+		transition:		0.2s,
 		banner:				2.5s
 	);
 
@@ -14,22 +14,50 @@
 	$size: (
 		border-radius:		4px,
 		element-height:		2.75em,
-		element-margin:		2em,
-		inner:				65em
+		element-margin:	2em,
+		inner:					65em
 	);
 
-// Font.
+// Fonts
+
+$sans: 'proxima-nova', sans-serif; 
+$serif_display: 'big-caslon';
+$serif_text: 'guyot-text';
+
 	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
-		family-fixed:		('Courier New', monospace),
-		weight:				300,
-		weight-bold:		600,
-		letter-spacing:		0.025em,
-		letter-spacing-alt:	0.25em
+		family:				(''proxima-nova', sans-serif'),
+		family_serif_display: ('Big Caslon FB'),
+		family_serif_text: ('Guyot Text'),
+		family_fixed:		('Courier New', monospace),
+		weight_normal:		400,
+		weight_medium:		500,
+		weight_semibold:	600,
+		weight_bold:			700,
+		tracked_0: 		0.03em,
+		tracked_1: 		0.06em,
+		tight_1: 			-0.02em,
+		size_8: .5em,
+		size_10: .625em,
+		size_12: .75em,
+		size_14: .875em,
+		size_16: 1em,
+		size_18: 1.125em,
+		size_21: 1.3125em,
+		size_24: 1.5em,
+		size_28: 1.75em,
+		size_33: 2.0625em,
+		size_48: 3em,
+		size_36: 2.25em,
+		size_60: 3.75em,
+		size_72: 4.5em,
+		size_80: 5.125em, 
+		size_90: 5.625em
 	);
+	
+	$sliver: #d7d9e0;
 
-// Palette.
-	$palette: (
+// Color.
+	$color: (
 		bg:					#242943,
 		bg-alt:				#2a2f4a,
 		fg:					#ffffff,
@@ -43,5 +71,32 @@
 		accent3:			#ec8d81,
 		accent4:			#e7b788,
 		accent5:			#8ea9e8,
-		accent6:			#87c5a4
+		accent6:			#87c5a4,	
+		white: #ffffff,
+		navy: #0c2c3b,
+		navy_grayish: #20353e,
+		yellow: #efd8af, 
+		orange: #CE7811,
+		blue: #184b63,
+		silver: $sliver,
+		dark_gray: #343f45,
+		soft_black: #262622, 
+		black: #181815
 	);
+	
+// Shadow
+$shadow_dark: 0.2rem 0.2rem .3rem rgba(0,0,0,.2);
+$shadow_darker: 0.2rem 0.2rem .3rem rgba(0,0,0,.5);
+	
+// Gradients
+$grad_black_navy: linear-gradient(0deg, rgba(12,44,59,1) 30%, rgba(24,24,21,1) 100%);
+$grad_black_navy_less: linear-gradient(0deg, rgba(26,35,39,1) 0%, rgba(12,44,59,1) 100%);
+$grad_navy_trans: linear-gradient(0deg, rgba(12,44,59,1) 5%, rgba(18,34,40,0) 30%);
+
+// Borders
+$border_0: 1px solid transparentize(white,.6);
+$border_0_dark: 1px solid $sliver;
+
+// Magins and gutters
+$gutter_1: 2rem;
+$margin_vert_0: 8rem;

@@ -1,54 +1,66 @@
-<!DOCTYPE html>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+ <html lang="en-us">
 
 {% include head.html %}
 
-<body>
+<body class="dark">
 
-    {% include header.html %}
+	 {% include header.html %}
 
-    <!-- Banner -->
-    <section id="banner" class="major">
-        <div class="inner">
-            <header class="major">
-                <h1>{{ page.landing-title }}</h1>
-            </header>
-            <div class="content">
-                <p style="text-transform: uppercase;">{{ site.description }}</p>
-                <ul class="actions">
-                    <li><a href="#one" class="button next scrolly">Get Started</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<!-- <div id="banner_spacer_top">&nbsp;</div> -->
+	 
+	 <!-- Banner -->
+	<div id="banner_wrapper">
+	<section id="banner" class="major">
+		<div class="inner">
+			<header class="major">
+				<h1 class="line_above">{{ site.title }}</h1>
+				<h1 class="title">{{ site.subtitle }}</h1>
+				<ul class="actions">
+					<li><a href="#one" class="button next border scrolly">Explore the exhibition</a></li>
+				</ul>
+			</header>
+			<div class="spacer">&nbsp;</div>
+			<div class="content">
+				<div class="intro">
+					<figure class="intro_image">		
+						<img alt="Photograph of in-plane bobbin lace model" src="../assets/images/index_model_1@2x.png">
+					</figure>
+					<div class="intro_text">
+						<div>{{ content}}</div>
+						<a class="button next more" href="">Read more about the exhibition</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</div>
 
-    <!-- Main -->
-    <div id="main">
+<!-- 	<div id="banner_spacer_bottom">&nbsp;</div> -->
 
-        <!-- One -->
-        {% include tiles.html %}
+	 <!-- Main -->
+	 <div id="main">
 
-        <!-- Two -->
-        <section id="two">
-            <div class="inner">
-                <header class="major">
-                    <h2>Massa libero</h2>
-                </header>
-                <p>{{ content }}</p>
-                <ul class="actions">
-                    <li><a href="landing.html" class="button next">Get Started</a></li>
-                </ul>
-            </div>
-        </section>
+		  <!-- One -->
+		  {% include tiles.html %}
 
-    </div>
+		  <!-- Two -->
+<!--
+		  <section id="two">
+				<div class="inner">
+					 <header class="major">
+						  <h2>Massa libero</h2>
+					 </header>
+					 <p>{{ content }}</p>
+					 <ul class="actions">
+						  <li><a href="landing.html" class="button next">Get Started</a></li>
+					 </ul>
+				</div>
+		  </section>
+-->
 
-    {% include footer.html %}
+	 </div>
+
+	 {% include footer.html %}
 
 </body>
 

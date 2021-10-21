@@ -37,7 +37,7 @@
 		}
 
 		if (!intensity)
-			intensity = 0.25;
+			intensity = 0.975;
 
 		$this.each(function() {
 
@@ -53,7 +53,7 @@
 
 						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
 
-						$t.css('background-position', 'center ' + (pos * (-1 * intensity)) + 'px');
+						$t.css('background-position', 'center 0, center ' + (pos * (-1 * intensity)) + 'px');
 
 					});
 
@@ -72,7 +72,7 @@
 			skel.on('change', function() {
 
 				if (skel.breakpoint('medium').active)
-					(off)();
+					(on)();
 				else
 					(on)();
 
@@ -233,7 +233,7 @@
 					$image = $this.find('.image'), $img = $image.find('img');
 
 				// Parallax.
-					$this._parallax(0.275);
+					$this._parallax(0.6);
 
 				// Image.
 					if ($image.length > 0) {
