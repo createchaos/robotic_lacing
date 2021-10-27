@@ -255,11 +255,13 @@
 }
 
 @include breakpoint(xsmall) {
-	#wrapper {
+	/*
+#wrapper {
 		&:before {
 			content: 'xsmall';
 		}
 	}
+*/
 	
 }
 	
