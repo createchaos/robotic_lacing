@@ -151,6 +151,43 @@
 	}
 }
 
+.coming_soon {
+	#banner {
+		background-image: 	$grad_navy_trans;
+		.intro {
+			@include vendor('display', 'flex');
+			justify-content: center;
+			align-items: center;
+			.intro_text {
+				display: block;
+				max-width: 42em;
+				a {
+					text-decoration: underline;
+				}
+				> div {
+					font-size: clamp(16px, 2vw, 24px);
+					line-height: 1.3em;
+					margin-bottom: 0;
+					p + p {
+						margin-top: 1em;
+					}
+				}
+			}
+		}
+	}
+	#banner > .inner .content {
+		//display: block;
+		align-items: center;
+		justify-content: center;
+	}
+	#banner > .inner header {
+		padding: 8vw 0;
+	}
+
+}
+
+
+
 // Debug responsive behaviors
 /*
 #wrapper {

@@ -167,3 +167,15 @@
 	}
 	
 }
+
+.coming_soon {
+	#footer > .inner {
+		padding-top: 0;
+	}
+	#footer .learn_more, #footer .contact {
+		width: 100%;
+		border-top: $border_0;
+		margin-top: 3rem;
+		padding-top: 3rem;
+	}
+}
