@@ -1,16 +1,16 @@
 ---
-title: Marquand
-author: Person Longname
-medium: Medium
-dimensions: 00 x 00 mm. 
-source: From CollectionName elit, published by Person Longname & Sons, London 2021, plate 00. London.
-museum: Museum Name
-museum_link: http://hi.com
-isbn: 0000-0000-00.
+title: Elizabeth Allen Marquand 
+author: John Singer Sargent
+medium: Oil on canvas
+dimensions: 169 x 107 cm. 
+date: 1887 
+museum: Princeton University Museum of Art 
+museum_link: https://artmuseum.princeton.edu/collections/objects/32245
+object number: y1977-77 
+credit line: Gift of Mrs Eleanor Marquand Delanoy,granddaughter of the sitter
 image: ../assets/images/labor/marquand.jpg
 image_alt: Alt test tk
 orientation: vert
 ---
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Hand-made lace remained in modern time both a product of luxury and a sign of restrain and modesty. These last qualities were expressed by the material itself, threads of cotton, and by the color, white, a symbol of purity. Members of the New England upper class, like Elizabeth Allen Marquand, wife of one of the founders of the Metropolitan Museum of Art and mother of its first director, aimed to present themselves as the moral descendants of the Puritan settlers. But hand-made lace was also a luxury item: the labor and skill that went into its creation transformed the cheap raw material into one of the most expensive items of a lady's garderobe. 
