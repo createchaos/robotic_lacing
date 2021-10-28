@@ -3,7 +3,7 @@ title: Lacemakers
 author: August Jaccaci
 medium: pen and black ink with brushed white highlights
 dimensions: 21.4 x 30 cm. 
-date: 1888 
+work_date: 1888 
 museum: Princeton University Art Museum 
 museum_link: https://artmuseum.princeton.edu/collections/objects/5658
 credit line: Gift of Frank Jewett Mather Jr
