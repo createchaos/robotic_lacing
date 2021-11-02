@@ -2,7 +2,7 @@
 layout: page
 title: Labor
 nav-menu: true
-description: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+description: he value and fascination of lace derives mostly from its fabrication and not the originality of its design or the internal value of the material used.
 ---
 From its inception in the 16th century up until the 19th century, European needle or bobbin lace remained an intensive, extremely specialized craft traditionally carried out by women exclusively. The value and fascination of lace derives mostly from its fabrication and not the originality of its design or the internal value of the material used — most of the time linen or later cotton. Lace commanded a high price, reserving its use for the wealthy religious or secular elite and drawing attention from other cultures as an object of fascination. The exhibition traces the passage of this craft from the hands of female lacemaking guilds to industrially made machine-lace products designed for repeatability and speed. In contrast, robotics of today can be employed for bespoke, differentiated tasks, suggesting a move away from standardization and a return back to customization. We find that the fundamental differences between the kinematics and control of humans and robots, however analogous, can lead to new, unexpected results.
 

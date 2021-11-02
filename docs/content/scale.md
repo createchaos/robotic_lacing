@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Scale
-description: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+description: The development of machine lace extended the use of lace in areas previously not systematically explored because of their scale.
 image: assets/images/index_scale@2x.png
 nav-menu: true
 ---

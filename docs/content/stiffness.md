@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Stiffness
-description: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+description: We consider the effects of working with inherently stiff yet pliant, elastic ribbons as opposed to formless round threads and witness the 3D forms that emerge.
 image: assets/images/index_stiffness@2x.png
 nav-menu: true
 ---
