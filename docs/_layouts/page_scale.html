@@ -37,7 +37,7 @@
 	<section id="main">
 		{% assign items = site.posts | sort: 'date' %}
 		{% for item in items %}
-			{% if item.path contains 'stiffness' %}
+			{% if item.path contains 'scale' %}
 			<article class="inner {{item.orientation}} gallery_item">
 				<figure class="gallery_image">
 					<img src="{{item.image}}" alt="{{item.image_alt}}" class="img">
