@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page_scale
 title: Scale
 description: The development of machine lace extended the use of lace in areas previously not systematically explored because of their scale.
 image: assets/images/index_scale@2x.png

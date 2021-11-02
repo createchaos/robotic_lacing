@@ -1,10 +1,8 @@
 ---
 layout: about
 title: About
-description: Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-image: assets/images/index_stiffness@2x.png
 nav-menu: true
 show_tile: false
 ---
 
-About page placeholder. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit.
+<em>Lace in Space</em> presents the outcome of an interdisciplinary investigation into new, spatial possibilities for bobbin lace, a centuries-old textile art. Generally characterized as a textile of many holes, bobbin lace is formed by braiding together continuous threads using different combinations of two simple 'stitches': the cross and twist. 

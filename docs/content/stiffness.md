@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page_stiffness
 title: Stiffness
 description: We consider the effects of working with inherently stiff yet pliant, elastic ribbons as opposed to formless round threads and witness the 3D forms that emerge.
 image: assets/images/index_stiffness@2x.png
