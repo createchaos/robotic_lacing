@@ -14,7 +14,7 @@
 					{% when "Labor" %}
 					<a href="/" class="button caret_left">Back: Home</a>
 					{% when "Scale" %}
-					<a href="{% link content/labor.md %}" class="button caret_left">Back: Labor</a>
+					<a href="{% link content/labor.md | relative_url %}" class="button caret_left">Back: Labor</a>
 					{% when "Stiffness" %}
 					<a href="{% link content/scale.md %}" class="button caret_left">Back: Scale</a>
 				{% endcase %}
