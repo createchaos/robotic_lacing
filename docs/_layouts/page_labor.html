@@ -12,7 +12,7 @@
 			<p class="prev">
 				{% case page.title %}
 					{% when "Labor" %}
-					<a href="/" class="button caret_left">Back: Home</a>
+					<a href="{{ site.baseurl }}" class="button caret_left">Back: Home</a>
 					{% when "Scale" %}
 					<a href="{% link content/labor.md | relative_url %}" class="button caret_left">Back: Labor</a>
 					{% when "Stiffness" %}
@@ -22,9 +22,9 @@
 			<p class="next">
 				{% case page.title %}
 					{% when "Labor" %}
-					<a href="{% link content/scale.md %}" class="button caret_right">Next: Scale</a>
+					<a href="{{ site.baseurl }}{% link content/scale.md %}" class="button caret_right">Next: Scale</a>
 					{% when "Scale" %}
-					<a href="{% link content/stiffness.md %}" class="button caret_right">Next: Stiffness</a>
+					<a href="{{ site.baseurl }}{% link content/stiffness.md %}" class="button caret_right">Next: Stiffness</a>
 				{% endcase %}
 			</p>
 			
