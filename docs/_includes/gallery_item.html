@@ -1,0 +1,21 @@
+<article class="inner {{item.orientation}} gallery_item">
+	<figure class="gallery_image">
+		<img src="{{item.image}}" alt="{% if item.image_alt %}{{item.image_alt}}{% else %}{{item.title}}{% endif %}" class="img">
+		<figcaption class="caption">
+			{{ item.content }}
+			<div class="item_details">
+				{% if item.author %}<p class="author">{{item.author}}</p>{% endif %}
+				{% if item.title %}<p class="title"><em>{{item.title}}{% if item.work_date %},</em> {{item.work_date}}{% else %}</em>{% endif %}</p>{% endif %}
+				{% if item.medium or item.size %}
+					<p class="medium_size">{% if item.medium %}{{item.medium}},{% endif %} {{item.dimensions}}</p>
+				{% endif %}
+
+					{% if item.museum %}
+						<p class="source">From <a href="{{item.museum_link}}">{{item.museum}}</a>{% if item.credit %}, {{item.credit}}{% endif %}. {% if item.object_number %}{{item.object_number}}.{% endif %}</p>
+				{% elsif item.source %}
+					<p class="source">From {{item.source}}</p>
+				{% endif %}
+			</div>
+		</figcaption>
+	</figure>
+</article> 

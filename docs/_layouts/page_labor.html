@@ -38,20 +38,7 @@
 		{% assign items = site.posts | sort: 'date' %}
 		{% for item in items %}
 			{% if item.path contains 'labor' %}
-			<article class="inner {{item.orientation}} gallery_item">
-				<figure class="gallery_image">
-					<img src="{{item.image}}" alt="{{item.image_alt}}" class="img">
-					<figcaption class="caption">
-						{{ item.content }}
-						<div class="item_details">
-							<p class="author">{{item.author}}</p>
-							<p class="title">{{item.title}}</p>
-							<p class="medium_size">{{item.medium}}, {{item.dimensions}}</p>
-							<p class="source">From {{item.musuem}} elit, gift of {{line-credit}} by Person Longname & Sons, <a href="{{item.museum_link}}">Link</a>.  {{item.object_number}}.</p>
-						</div>
-					</figcaption>
-				</figure>
-			</article>
+				{% include gallery_item.html %}
 			{% endif %}
 		{% endfor %}
 	</section>

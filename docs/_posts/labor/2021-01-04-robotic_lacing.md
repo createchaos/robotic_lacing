@@ -1,15 +1,14 @@
 ---
 title: Robotic Lacing
-work date: 2021 
+Author: Lauren Dreier, Laura Fegely, Stefana Parascho
+work date: 2021
 medium: 
 dimensions: 
 source: 
 museum: Princeton University CREATE Lab
-museum_link: https://artmuseum.princeton.edu/collections/objects/15510
-credit line: 
-object number: 
+credit: 
 image: ../assets/images/index/IMG_2715.jpg
-image_alt: Three robotic arms working collaboratively to make lace
+image_alt: Three industrial robotic arms working collaboratively to make lace
 orientation: horiz
 ---
 

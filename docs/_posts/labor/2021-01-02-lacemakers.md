@@ -1,15 +1,15 @@
 ---
-title: Lacemakers
+title: Lace Makers
 author: August Jaccaci
-medium: pen and black ink with brushed white highlights
+medium: Pen and black ink with brushed white highlights
 dimensions: 21.4 x 30 cm. 
 work_date: 1888 
 museum: Princeton University Art Museum 
 museum_link: https://artmuseum.princeton.edu/collections/objects/5658
-credit line: Gift of Frank Jewett Mather Jr
-object number: x1946-394
+credit: Gift of Frank Jewett Mather Jr.
+object_number: x1946-394
 image: ../assets/images/labor/lacemakers.jpg
-image_alt: Alt test tk
+image_alt: Lace Makers, Pen and black ink with brushed white highlights by August Jaccaci
 orientation: horiz
 ---
 

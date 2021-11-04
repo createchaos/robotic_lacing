@@ -105,7 +105,9 @@ h2 {
 					font-weight: _font(weight_semibold);
 				}
 				.title {
-					font-style: italic;
+					em {
+						font-style: italic;
+					}
 				}
 				a {
 					text-decoration: underline;
