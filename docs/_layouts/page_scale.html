@@ -6,33 +6,7 @@
 
 	{% include header.html %}
 	
-	<header id="page_header" class="major">
-		<div class="inner">
-			
-			<p class="prev">
-				{% case page.title %}
-					{% when "Labor" %}
-					<a href="/" class="button caret_left">Back: Home</a>
-					{% when "Scale" %}
-					<a href="{% link content/labor.md %}" class="button caret_left">Back: Labor</a>
-					{% when "Stiffness" %}
-					<a href="{% link content/scale.md %}" class="button caret_left">Back: Scale</a>
-				{% endcase %}
-			</p>
-			<p class="next">
-				{% case page.title %}
-					{% when "Labor" %}
-					<a href="{% link content/scale.md %}" class="button caret_right">Next: Scale</a>
-					{% when "Scale" %}
-					<a href="{% link content/stiffness.md %}" class="button caret_right">Next: Stiffness</a>
-				{% endcase %}
-			</p>
-			
-			<h1 class="title">{{ page.title }}</h1>
-			
-			<p class="intro">{{ content | remove: '<p>' }}</p>
-		</div>
-	</header>
+	{% include page_header.html %}
 	
 	<section id="main">
 		{% assign items = site.posts | sort: 'date' %}
