@@ -11,10 +11,10 @@ h2 {
 	.inner {
 		display: grid;
 		grid:
-			[row1-start] "prev next" 2rem [row1-end]
-			[row2-start] "title intro" auto [row2-end]
-			/ 1fr 1fr;
-		padding: $margin_vert_0 / 2 0;
+			[row1-start] "prev prev prev next next next" 2rem [row1-end]
+			[row2-start] "title title intro intro intro intro" auto [row2-end]
+			/ 1fr 1fr 1fr 1fr 1fr 1fr;
+		padding: $margin_vert_0 / 2  0 $margin_vert_0;
 		row-gap: 3rem;
 	}
 	.prev, .next {
@@ -33,17 +33,34 @@ h2 {
 	.title {
 		grid-area: title;
 		font-family: $serif_display;
-		font-size: _font(size_90);
+		font-size: _font(size_72);
 	}
 	.intro {
 		grid-area: intro;
-		font-family: $serif_text;
-		font-size: _font(size_24);
-		line-height: 1.25em;
-		&:first-line {
-			font-style: italic;
+		.intro_lede {
+			font-size: _font(size_24);
+			font-weight:  _font(weight_medium);
+			color: _color(gray);
+			line-height: 1.15em;
+			margin-bottom: .5em;
+			&:first-line {
+				//font-style: italic;
+			}
+		}
+		.intro_text {
+			columns: 2;
+			font-size: _font(size_16);
+			//color: #67686b;
+			line-height: 1.35em;
 		}
 	}
+	
+	@include breakpoint(medium)  {
+		.title {
+			font-size: _font(size_60);
+		}
+	}
+	
 	@include breakpoint(small) {
 		.inner {
 			padding: $margin_vert_0 / 4 0;
@@ -57,7 +74,11 @@ h2 {
 		.prev, .next {
 			font-size: 87.5%;
 		}
+		.intro .intro_text {
+			columns: 1;
+		}
 	}
+	
 }
 
 #main {
